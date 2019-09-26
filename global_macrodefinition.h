@@ -11,13 +11,14 @@
 
 #define FLOAT_ZERO 1e-6
 
-#define Do_Action(_X_)   _X_*=3; int _X_Usr_ = _X_;Q_UNUSED(_X_Usr_);
+#define Do_Action(_X_, _Func_)   _X_*=3;_Func_; int _X_Usr_ = _X_;Q_UNUSED(_X_Usr_);
     int num=5;
-    {Do_Action(num); }
+#define _STUB_ACTION_(_X_)  qDebug()<<_X_;
+    {Do_Action(num,(qDebug()<<num)); }
     {
-        Do_Action(num);
+        Do_Action(num,);
         _X_Usr_*=2;
-    };
+    }
 	
 	
 // 调试日志信息
